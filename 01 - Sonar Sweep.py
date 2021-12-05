@@ -22,10 +22,10 @@ def num_sliding_windows_increased(measurements):
     i, j, k = 0, 1, 2
     increased = 0
     while k < stop:
-        sum = measurements[i] + measurements[j] + measurements[k]
-        if prev_sum is not None and prev_sum < sum:
+        total = measurements[i] + measurements[j] + measurements[k]
+        if prev_sum is not None and prev_sum < total:
             increased += 1
-        prev_sum = sum
+        prev_sum = total
         i, j, k = i + 1, j + 1, k + 1
     return increased
 
