@@ -126,22 +126,25 @@ def part1(boards, drawings):
 def part2(boards, drawings):
     numbers_drawn = 0
     score = 0
-    winning_draw = 0
-    winning_board = None
+    last_winning_draw = 0
+    last_winning_board = None
     for drawing in drawings:
         numbers_drawn += 1
-        board_id = 0
+        won_this_round = []
         for board in boards:
             is_marked = board.mark(drawing)
             if is_marked and numbers_drawn >= BOARD_SIDE_LEN:
                 if board.is_winner():
                     score = drawing * board.sum_not_marked()
-                    winning_draw = drawing
-                    winning_board = board
-                    boards.pop(board_id)
-            board_id += 1
-    if winning_board is not None:
-        print('Winning number:' + str(winning_draw))
+                    last_winning_draw = drawing
+                    last_winning_board = board
+                    won_this_round.append(board)
+        for board in won_this_round:
+            boards.remove(board)
+        if len(boards) == 0:
+            break
+    if last_winning_board is not None:
+        print('Winning number:' + str(last_winning_draw))
         print('Winning board:\n' + str(board))
         print('Score = ' + str(score))
         return score
@@ -201,3 +204,4 @@ def main():
     part2(boards, drawings)
 
 run_tests()
+main()
