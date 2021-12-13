@@ -1,0 +1,11 @@
+16,1,2,0,4,2,7,1,2,14
+
+crabs: 1  2  3     1        1                     1     1
+pos:   0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16
+cost:  49 
+
+2 + 3 = 5
+5 / 2 = 3.5
+3.5 / 5 = 0.7
+between positions 1 and 2, 1.7 is ideal, but we must pick an integer, so we choose 2.
+
